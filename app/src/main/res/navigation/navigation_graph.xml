@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/taskFragment"
         android:name="com.madmuv.todolist2.ui.task.TaskFragment"
-        android:label="Madmuv's todo List"
+        android:label="Madmuv's Todo List"
         tools:layout="@layout/fragment_task" >
         <action
             android:id="@+id/action_taskFragment_to_addFragment"
