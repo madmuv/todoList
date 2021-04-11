@@ -2,7 +2,9 @@ package com.madmuv.todolist2.utils
 
 import android.graphics.Color
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
+import com.madmuv.todolist2.R
 import java.sql.Timestamp
 import java.text.DateFormat
 
