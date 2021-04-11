@@ -15,11 +15,14 @@ class TaskViewModel(application: Application): AndroidViewModel(application) {
     private val taskDao = TaskDatabase.getDatabase(application).taskDao()
     private val repository: TaskRepository
 
-    val getAllTask: LiveData<List<TaskEntry>>
+    val getAllTask : LiveData<List<TaskEntry>>
+    val getAllPriorityTask: LiveData<List<TaskEntry>>
+
 
     init {
         repository = TaskRepository(taskDao)
         getAllTask = repository.getAllTask()
+        getAllPriorityTask = repository.getAllPriorityTask()
     }
 
     fun insert(taskEntry: TaskEntry) {
@@ -44,5 +47,9 @@ class TaskViewModel(application: Application): AndroidViewModel(application) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.deleteAll()
         }
+    }
+
+    fun searchDatabase(searchQuery: String) : LiveData<List<TaskEntry>> {
+        return repository.searchDatabase(searchQuery)
     }
 }
